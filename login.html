@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tejash_kumar_yadav_20250110200338</title>
+    <style>
+  body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background-color: #FFD8A8; 
+        color: #333;
+        }
+        .header {
+        background-color: rgb(255, 149, 0); 
+        color: white;
+        padding: 15px 20px;
+        text-align: center;
+        }
+
+        .header h1 { margin: 0; }
+        .nav { background-color: grey; padding: 10px; }
+        .nav a { color: white; margin: 0 15px; font-weight: bold; }
+        .container { padding: 20px; max-width: 500px; margin: auto; }
+        .booking-form { background-color: white; padding: 30px; border-radius: 8px;  }
+        .loginform { margin-bottom: 15px; }
+        .loginform label { display: block; margin-bottom: 5px; font-weight: bold; }
+        .loginform input, .loginform select { width: 90%; padding: 10px; border: 2px solid grey; border-radius: 4px; }
+        button { background-color: red; color: white; padding: 10px 15px;; ; cursor: pointer; }
+        .message { color: green; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Red Chilli Login</h1>
+    </div>
+
+    <div class="nav">
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="book.html">Book a Table</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="login.html">Login</a>
+    </div>
+
+    <div class="container">
+        <div class="login-box">
+            <h2>Admin Login</h2>
+            <form name="loginform" class="loginform">
+                <label for="">Username</label>
+            <input type="text" id="username" placeholder="Username"> <br>
+            <label for="">Password</label>
+            <input type="password" id="password" placeholder="Password">
+            <br> <br>
+            <button onclick="validateLogin()">Login</button>
+            
+            <p id="errorMessage" class="error"></p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function validateLogin() {
+            
+            var user = document.loginform.username.value; 
+            var pass = document.loginform.password.value;
+                 
+            
+            if (user === "admin" && pass === "12345") {
+                alert("Login Successful! Welcome.");
+            } else {
+                alert("Invalid Username or Password!");
+            }
+        }
+    </script>
+
+</body>
+</html>

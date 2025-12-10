@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tejash_kumar_yadav_20250110200338</title>
+    <style>
+        body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background-color: #FFD8A8; 
+        color: #333;
+        }
+        .header {
+        background-color: rgb(255, 149, 0); 
+        color: white;
+        padding: 15px 20px;
+        text-align: center;
+        }
+
+        .header h1 { margin: 0; }
+        .nav { background-color: grey; padding: 10px; }
+        .nav a { color: white; margin: 0 15px; font-weight: bold; }
+        .container { padding: 20px; max-width: 500px; margin: auto; }
+        .booking-form { background-color: white; padding: 30px; border-radius: 8px;  }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+        .form-group input, .form-group select { width: 100%; padding: 10px; border: 2px solid grey; border-radius: 4px; }
+        .btn { background-color: red; color: white; padding: 10px 15px;; ; cursor: pointer; }
+        .message { color: green; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Red Chilli</h1>
+    </div>
+    <div class="nav">
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="book.html">Book a Table</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="login.html">Login</a>
+    </div>
+    <div class="container">
+        <div class="booking-form">
+            <form name="myform" onsubmit="return validateBooking(event)">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">Time (e.g., 7:00 PM):</label>
+                    <input type="text" id="time" name="time" placeholder="e.g., 7:00 PM" required>
+                </div>
+                <div class="form-group">
+                    <label for="guests">Number of Guests:</label>
+                    <select id="guests" name="guests" required>
+                        <option value="">-- Select --</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="4">4</option>
+                        <option value="6">6+</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn">Confirm Booking</button>
+            </form>
+            <div id="confirmationMessage" class="message" style="display: none;"></div>
+        </div>
+    </div>
+
+    <script>
+        function validateBooking(event) {
+            event.preventDefault();
+            
+            const name = document.myform.name.value;
+            const date = document.myform.date.value;
+            const time = document.myform.time.value; 
+            const guests = document.myform.guests.value;
+            const messageDiv = document.getElementById('confirmationMessage');
+
+            if (name && date && time && guests) {
+                messageDiv.textContent = 'Thank you, ' + name + '! Your booking for ' + guests + ' on ' + date + ' at ' + time + ' is confirmed.';
+                messageDiv.style.display = 'block';
+
+                document.myform.reset();
+            } else {
+                messageDiv.textContent = 'Please fill out all required fields.';
+                messageDiv.style.color = 'red';
+                messageDiv.style.display = 'block';
+            }
+            return false;
+        }
+    </script>
+</body>
+</html>
